@@ -1,19 +1,19 @@
-  import { Ionicons } from "@expo/vector-icons";
-  import { LinearGradient } from "expo-linear-gradient";
-  import * as Location from "expo-location";
-  import { router } from "expo-router";
-  import { useCallback, useEffect, useRef, useState } from "react";
-  import {
-    ActivityIndicator,
-    Animated,
-    Dimensions,
-    ScrollView,
-    StatusBar,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
-  } from "react-native";
+ import { Ionicons } from "@expo/vector-icons";
+import { LinearGradient } from "expo-linear-gradient";
+import * as Location from "expo-location";
+import { router } from "expo-router";
+import { useCallback, useEffect, useRef, useState } from "react";
+import {
+  ActivityIndicator,
+  Animated,
+  Dimensions,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
   const { width } = Dimensions.get("window");
   const CARD_WIDTH = (width - 60) / 2;
@@ -35,16 +35,78 @@
 
   // ─── Static constants (outside component = no re-render re-creation) ──────────
 
-  const NAV_CARDS = [
-    { label: "Places",      icon: "location",   route: "/places",      colors: ["#3b82f6", "#1d4ed8"] },
-    { label: "Restaurants", icon: "restaurant", route: "/restaurants", colors: ["#f97316", "#c2410c"] },
-    { label: "Hotels",      icon: "bed",        route: "/hotels",      colors: ["#8b5cf6", "#6d28d9"] },
-    { label: "Malls",       icon: "cart",       route: "/malls",       colors: ["#10b981", "#047857"] },
-    { label: "Heritage",    icon: "business",   route: "/heritage",    colors: ["#f59e0b", "#b45309"] },
-    { label: "Parks",       icon: "leaf",       route: "/parks",       colors: ["#22c55e", "#15803d"] },
-    { label: "Shopping",    icon: "bag-handle", route: "/shopping",    colors: ["#ec4899", "#be185d"] },
-    { label: "Wildlife",    icon: "paw",        route: "/wildlife",    colors: ["#14b8a6", "#0f766e"] },
-  ] as const;
+ const NAV_CARDS = [
+  {
+    id: "places",
+    label: "Places",
+    subtitle: "Explore nearby spots",
+    icon: "location-outline",
+    route: "/places",
+    colors: ["#3b82f6", "#1d4ed8"],
+    bgLight: "#eff6ff",
+    iconColor: "#1d4ed8",
+  },
+  {
+    id: "restaurants",
+    label: "Restaurants",
+    subtitle: "Best food around you",
+    icon: "restaurant-outline",
+    route: "/restaurants",
+    colors: ["#f97316", "#c2410c"],
+    bgLight: "#fff7ed",
+    iconColor: "#c2410c",
+  },
+  {
+    id: "hotels",
+    label: "Hotels",
+    subtitle: "Comfortable stays",
+    icon: "bed-outline",
+    route: "/hotels",
+    colors: ["#8b5cf6", "#6d28d9"],
+    bgLight: "#f5f3ff",
+    iconColor: "#6d28d9",
+  },
+  {
+    id: "malls",
+    label: "Malls",
+    subtitle: "Shop & hangout",
+    icon: "cart-outline",
+    route: "/malls",
+    colors: ["#10b981", "#047857"],
+    bgLight: "#ecfdf5",
+    iconColor: "#047857",
+  },
+  {
+    id: "parks",
+    label: "Parks",
+    subtitle: "Relax & enjoy nature",
+    icon: "leaf-outline",
+    route: "/parks",
+    colors: ["#22c55e", "#15803d"],
+    bgLight: "#f0fdf4",
+    iconColor: "#15803d",
+  },
+  {
+    id: "shopping",
+    label: "Shopping",
+    subtitle: "Trendy & local stores",
+    icon: "bag-handle-outline",
+    route: "/shopping",
+    colors: ["#ec4899", "#be185d"],
+    bgLight: "#fdf2f8",
+    iconColor: "#be185d",
+  },
+  {
+    id: "wildlife",
+    label: "Wildlife",
+    subtitle: "Explore nature life",
+    icon: "paw-outline",
+    route: "/wildlife",
+    colors: ["#14b8a6", "#0f766e"],
+    bgLight: "#f0fdfa",
+    iconColor: "#0f766e",
+  },
+] as const;
 
   const QUICK_FACTS = [
     { value: "150+", label: "Places"      },
@@ -238,7 +300,7 @@
           </View>
         </View>
         <View style={S.locDot} />
-      </View>
+      </View> 
     );
   }
 
