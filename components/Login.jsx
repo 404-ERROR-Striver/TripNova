@@ -26,7 +26,7 @@ return(
         }}>Discover your next adventure effortlessly. Persona
 
 <View>
-    <text>Sign In With GoogleR</Text>
+    <text>Sign In With GoogleR</text>
     </view>
         </View>
         )
