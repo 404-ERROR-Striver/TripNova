@@ -1,12 +1,14 @@
-import { useRouter } from "expo-router";
-import { useEffect } from "react";
+import { Text, View } from "react-native";
+import Login from './../components/Login'
 
 export default function Index() {
-  const router = useRouter();
-
-  useEffect(() => {
-    router.replace("/login"); // redirect to login
-  }, []);
-
-  return null;
+  return (
+    <View
+      style={{
+        flex: 1,
+      }}
+    >
+     <Login/>
+    </View>
+  );
 }
